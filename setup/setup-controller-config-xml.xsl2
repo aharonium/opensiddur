@@ -8,8 +8,15 @@
     xmlns:c="http://exist.sourceforge.net/NS/exist"
     exclude-result-prefixes="c">
     <xsl:output method="xml" indent="yes"/>
+    
+    <!-- reroute /api -->
+    <xsl:template match="c:forward[@pattern='/restxq/']">
+      <forward pattern="/api" servlet="{@servlet}"/>
+      <xsl:sequence select="."/>
+    </xsl:template>
+    
     <xsl:template match="c:root[@pattern='/apps']">
-        <xsl:comment>Open Siddur Configuration
+        <xsl:comment>Open Siddur Configuration:
 </xsl:comment>
         <root pattern="/exist/rest" path="xmldb:exist:///"/>
         <root pattern="/exist/" path="/"/>
@@ -19,9 +26,12 @@
     </xsl:template>
 
     <xsl:template match="c:root[@pattern='.*']">
-        <xsl:comment>Open Siddur Configuration: RESTXQ is the default path
+        <xsl:comment>Open Siddur Configuration: RESTXQ is the default path;
+Do not rely on it! The client app can change this!
 </xsl:comment>
         <root pattern="/code" path="xmldb:exist:///db/code"/>
+        <xsl:comment>Uncomment for client app:</xsl:comment>
+        <xsl:comment>root pattern="/" path="xmldb:exist:///db/apps/opensiddur-client"/></xsl:comment>
         <root pattern=".*" path="/restxq"/>
     </xsl:template>
 
