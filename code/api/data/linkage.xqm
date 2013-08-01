@@ -79,7 +79,7 @@ declare function lnk:validate-report(
  :)
 declare
   %rest:GET
-  %rest:path("/api/data/linkage/{$name}")
+  %rest:path("/data/linkage/{$name}")
   %rest:produces("application/xml", "text/xml", "application/tei+xml")
   function lnk:get(
     $name as xs:string
@@ -98,7 +98,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/linkage")
+  %rest:path("/data/linkage")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -144,7 +144,7 @@ declare function lnk:list-function(
  :)
 declare 
   %rest:DELETE
-  %rest:path("/api/data/linkage/{$name}")
+  %rest:path("/data/linkage/{$name}")
   function lnk:delete(
     $name as xs:string
   ) as item()+ {
@@ -164,7 +164,7 @@ declare
  :)
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/linkage")
+  %rest:path("/data/linkage")
   %rest:consumes("application/xml", "application/tei+xml", "text/xml")
   function lnk:post(
     $body as document-node()
@@ -197,7 +197,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/linkage/{$name}")
+  %rest:path("/data/linkage/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function lnk:put(
     $name as xs:string,
@@ -217,7 +217,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/linkage/{$name}/access")
+  %rest:path("/data/linkage/{$name}/access")
   %rest:produces("application/xml")
   function lnk:get-access(
     $name as xs:string
@@ -236,7 +236,7 @@ declare
  :)
 declare 
   %rest:PUT("{$body}")
-  %rest:path("/api/data/linkage/{$name}/access")
+  %rest:path("/data/linkage/{$name}/access")
   %rest:consumes("application/xml", "text/xml")
   function lnk:put-access(
     $name as xs:string,

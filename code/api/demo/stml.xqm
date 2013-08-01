@@ -25,7 +25,7 @@ declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
  :)
 declare 
   %rest:GET
-  %rest:path("/api/demo/stml")
+  %rest:path("/demo/stml")
   %output:method("html5")
   function stdemo:get(
   ) as item()* {
@@ -87,7 +87,7 @@ declare
  :)
 declare 
   %rest:POST("{$body}")
-  %rest:path("/api/demo/stml")
+  %rest:path("/demo/stml")
   %rest:consumes("text/plain")
   %output:method("xml")
   function stdemo:post-text(

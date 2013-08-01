@@ -55,7 +55,7 @@ declare function src:validate-report(
  :)
 declare
   %rest:GET
-  %rest:path("/api/data/sources/{$name}")
+  %rest:path("/data/sources/{$name}")
   %rest:produces("application/xml", "text/xml", "application/tei+xml")
   function src:get(
     $name as xs:string
@@ -72,7 +72,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/sources")
+  %rest:path("/data/sources")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -123,7 +123,7 @@ declare function src:title-function(
  :)
 declare 
   %rest:DELETE
-  %rest:path("/api/data/sources/{$name}")
+  %rest:path("/data/sources/{$name}")
   function src:delete(
     $name as xs:string
   ) as item()+ {
@@ -142,7 +142,7 @@ declare
  :)
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/sources")
+  %rest:path("/data/sources")
   %rest:consumes("application/xml", "application/tei+xml", "text/xml")
   function src:post(
     $body as document-node()
@@ -171,7 +171,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/sources/{$name}")
+  %rest:path("/data/sources/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function src:put(
     $name as xs:string,

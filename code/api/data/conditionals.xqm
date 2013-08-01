@@ -102,7 +102,7 @@ declare function cnd:validate-report(
  :)
 declare
   %rest:GET
-  %rest:path("/api/data/conditionals/{$name}")
+  %rest:path("/data/conditionals/{$name}")
   %rest:produces("application/xml", "text/xml", "application/tei+xml")
   function cnd:get(
     $name as xs:string
@@ -122,7 +122,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/conditionals")
+  %rest:path("/data/conditionals")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -168,7 +168,7 @@ declare function cnd:list-function(
  :)
 declare 
   %rest:DELETE
-  %rest:path("/api/data/conditionals/{$name}")
+  %rest:path("/data/conditionals/{$name}")
   function cnd:delete(
     $name as xs:string
   ) as item()+ {
@@ -188,7 +188,7 @@ declare
  :)
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/conditionals")
+  %rest:path("/data/conditionals")
   %rest:consumes("application/xml", "application/tei+xml", "text/xml")
   function cnd:post(
     $body as document-node()
@@ -219,7 +219,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/conditionals/{$name}")
+  %rest:path("/data/conditionals/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function cnd:put(
     $name as xs:string,

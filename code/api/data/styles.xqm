@@ -67,7 +67,7 @@ declare function sty:validate-report(
  :)
 declare
   %rest:GET
-  %rest:path("/api/data/styles/{$name}")
+  %rest:path("/data/styles/{$name}")
   %rest:produces("application/xml", "text/xml", "application/tei+xml")
   function sty:get-xml(
     $name as xs:string
@@ -77,7 +77,7 @@ declare
 
 declare 
   %rest:GET
-  %rest:path("/api/data/styles/{$name}")
+  %rest:path("/data/styles/{$name}")
   %rest:produces("text/css", "text/plain")
   %output:method("text")
   %output:media-type("text/css")
@@ -102,7 +102,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/styles")
+  %rest:path("/data/styles")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -149,7 +149,7 @@ declare function sty:list-function(
  :)
 declare 
   %rest:DELETE
-  %rest:path("/api/data/styles/{$name}")
+  %rest:path("/data/styles/{$name}")
   function sty:delete(
     $name as xs:string
   ) as item()+ {
@@ -169,7 +169,7 @@ declare
  :)
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/styles")
+  %rest:path("/data/styles")
   %rest:consumes("application/xml", "application/tei+xml", "text/xml")
   function sty:post(
     $body as document-node()
@@ -200,7 +200,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/styles/{$name}")
+  %rest:path("/data/styles/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function sty:put-xml(
     $name as xs:string,
@@ -256,7 +256,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/styles/{$name}")
+  %rest:path("/data/styles/{$name}")
   %rest:consumes("text/css")
   function sty:put-css(
     $name as xs:string,
@@ -283,7 +283,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/styles/{$name}/access")
+  %rest:path("/data/styles/{$name}/access")
   %rest:produces("application/xml")
   function sty:get-access(
     $name as xs:string
@@ -302,7 +302,7 @@ declare
  :)
 declare 
   %rest:PUT("{$body}")
-  %rest:path("/api/data/styles/{$name}/access")
+  %rest:path("/data/styles/{$name}/access")
   %rest:consumes("application/xml", "text/xml")
   function sty:put-access(
     $name as xs:string,

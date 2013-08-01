@@ -123,7 +123,7 @@ declare function orig:validate-changes(
  :)
 declare
   %rest:GET
-  %rest:path("/api/data/original/{$name}")
+  %rest:path("/data/original/{$name}")
   %rest:produces("application/xml", "text/xml", "application/tei+xml")
   function orig:get(
     $name as xs:string
@@ -140,7 +140,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original")
+  %rest:path("/data/original")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -190,7 +190,7 @@ declare function orig:list-function(
  :)
 declare 
   %rest:DELETE
-  %rest:path("/api/data/original/{$name}")
+  %rest:path("/data/original/{$name}")
   function orig:delete(
     $name as xs:string
   ) as item()+ {
@@ -210,7 +210,7 @@ declare
  :)
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/original")
+  %rest:path("/data/original")
   %rest:consumes("application/xml", "application/tei+xml", "text/xml")
   function orig:post(
     $body as document-node()
@@ -241,7 +241,7 @@ declare
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/original/{$name}")
+  %rest:path("/data/original/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function orig:put(
     $name as xs:string,
@@ -261,7 +261,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original/{$name}/access")
+  %rest:path("/data/original/{$name}/access")
   %rest:produces("application/xml")
   function orig:get-access(
     $name as xs:string
@@ -280,7 +280,7 @@ declare
  :)
 declare 
   %rest:PUT("{$body}")
-  %rest:path("/api/data/original/{$name}/access")
+  %rest:path("/data/original/{$name}/access")
   %rest:consumes("application/xml", "text/xml")
   function orig:put-access(
     $name as xs:string,
@@ -296,7 +296,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original/{$name}/flat")
+  %rest:path("/data/original/{$name}/flat")
   %rest:produces("application/xml", "text/xml")
   function orig:get-flat(
     $name as xs:string
@@ -316,7 +316,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original/{$name}/combined")
+  %rest:path("/data/original/{$name}/combined")
   %rest:query-param("transclude", "{$transclude}")
   %rest:produces("application/xml", "text/xml")
   %output:method("xml")
@@ -344,7 +344,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original/{$name}/combined")
+  %rest:path("/data/original/{$name}/combined")
   %rest:query-param("transclude", "{$transclude}")
   %rest:produces("application/xhtml+xml", "text/html")
   %output:method("html5")
@@ -364,7 +364,7 @@ declare
 (:~ for debugging only :)
 declare 
   %rest:GET
-  %rest:path("/api/data/original/{$name}/html")
+  %rest:path("/data/original/{$name}/html")
   %rest:query-param("transclude", "{$transclude}")
   %rest:produces("application/xhtml+xml", "text/html")
   %output:method("html5")

@@ -119,7 +119,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/user")
+  %rest:path("/user")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -172,7 +172,7 @@ declare
  :)
 declare
   %rest:GET
-  %rest:path("/api/user/{$name}")
+  %rest:path("/user/{$name}")
   %rest:produces("application/xml", "application/tei+xml", "text/xml")
   %output:method("xml")
   function user:get(
@@ -195,7 +195,7 @@ declare
  :)
 declare 
   %rest:POST("{$body}")
-  %rest:path("/api/user")
+  %rest:path("/user")
   %rest:consumes("application/xml", "text/xml")
   function user:post-xml(
     $body as document-node()
@@ -214,7 +214,7 @@ declare
  :)
 declare 
   %rest:POST
-  %rest:path("/api/user")
+  %rest:path("/user")
   %rest:form-param("user", "{$user}")
   %rest:form-param("password", "{$password}")
   %rest:consumes("application/x-www-form-urlencoded")
@@ -340,7 +340,7 @@ declare function user:validate-report(
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/user/{$name}")
+  %rest:path("/user/{$name}")
   %rest:consumes("application/tei+xml", "application/xml", "text/xml")
   function user:put(
     $name as xs:string,
@@ -398,7 +398,7 @@ declare
  :)
 declare
   %rest:DELETE
-  %rest:path("/api/user/{$name}")
+  %rest:path("/user/{$name}")
   function user:delete(
     $name as xs:string
   ) as item()+ {

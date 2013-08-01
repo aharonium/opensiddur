@@ -85,7 +85,7 @@ declare function grp:get-groups(
  :)
 declare 
   %rest:GET
-  %rest:path("/api/group")
+  %rest:path("/group")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
   %rest:produces("application/xhtml+xml", "application/xml", "text/html", "text/xml")
@@ -133,7 +133,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/group/{$name}")
+  %rest:path("/group/{$name}")
   %rest:produces("application/xml", "text/xml")
   function grp:get-xml(
     $name as xs:string
@@ -171,7 +171,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/group/{$name}")
+  %rest:path("/group/{$name}")
   %rest:produces("application/xhtml+xml", "text/html")
   function grp:get-html(
     $name as xs:string
@@ -209,7 +209,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/user/{$user}/groups")
+  %rest:path("/user/{$user}/groups")
   %rest:produces("application/xhtml+xml", "application/xml", "text/html", "text/xml")
   function grp:get-user-groups(
     $user as xs:string
@@ -318,7 +318,7 @@ declare function grp:validate-report(
  :)
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/group/{$name}")
+  %rest:path("/group/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function grp:put(
     $name as xs:string,
@@ -470,7 +470,7 @@ declare
  :)
 declare
   %rest:DELETE
-  %rest:path("/api/group/{$name}")
+  %rest:path("/group/{$name}")
   function grp:delete(
     $name as xs:string
   ) as item()+ {

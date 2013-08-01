@@ -75,7 +75,7 @@ declare function local:transliterate(
  :)
 declare 
   %rest:GET
-  %rest:path("/api/demo")
+  %rest:path("/demo")
   %rest:produces("application/xhtml+xml", "application/xml", "text/html", "text/xml")
   %output:method("html5")
   function demo:list(
@@ -111,7 +111,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/demo/transliteration")
+  %rest:path("/demo/transliteration")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)  
@@ -161,7 +161,7 @@ declare
  :)
 declare  
   %rest:POST("{$body}")
-  %rest:path("/api/demo/transliteration/{$schema}")
+  %rest:path("/demo/transliteration/{$schema}")
   %rest:consumes("application/xml")
   %rest:produces("application/xml", "text/xml")
   function demo:transliterate-xml(
@@ -185,7 +185,7 @@ declare
  :)
 declare 
   %rest:POST("{$body}")
-  %rest:path("/api/demo/transliteration/{$schema}")
+  %rest:path("/demo/transliteration/{$schema}")
   %rest:consumes("text/plain")
   %rest:produces("text/plain")
   function demo:transliterate-text(

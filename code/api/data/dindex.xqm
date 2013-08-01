@@ -17,7 +17,7 @@ declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
 (:~ list all available data APIs :)
 declare 
   %rest:GET
-  %rest:path("/api/data")
+  %rest:path("/data")
   %rest:produces("application/xhtml+xml", "text/html", "application/xml", "text/xml")
   function dindex:list(
   ) as item()+ {
@@ -67,7 +67,7 @@ declare
 
 declare 
   %rest:GET
-  %rest:path("/api/data/OpenSearchDescription")
+  %rest:path("/data/OpenSearchDescription")
   %rest:query-param("source", "{$source}", "")
   %rest:produces("application/opensearchdescription+xml","application/xml","text/xml")
   function dindex:open-search(

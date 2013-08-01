@@ -47,7 +47,7 @@ declare function tran:validate-report(
 
 declare 
   %rest:GET
-  %rest:path("/api/data/transliteration/{$name}")
+  %rest:path("/data/transliteration/{$name}")
   %rest:produces("application/xml")
   function tran:get(
     $name as xs:string
@@ -61,7 +61,7 @@ declare
  :)
 declare 
   %rest:GET
-  %rest:path("/api/data/transliteration")
+  %rest:path("/data/transliteration")
   %rest:query-param("q", "{$q}", "")
   %rest:query-param("start", "{$start}", 1)
   %rest:query-param("max-results", "{$max-results}", 100)
@@ -105,7 +105,7 @@ declare function tran:title-function(
 
 declare 
   %rest:DELETE
-  %rest:path("/api/data/transliteration/{$name}")
+  %rest:path("/data/transliteration/{$name}")
   function tran:delete(
     $name as xs:string
   ) as item()+ {
@@ -114,7 +114,7 @@ declare
 
 declare
   %rest:POST("{$body}")
-  %rest:path("/api/data/transliteration")
+  %rest:path("/data/transliteration")
   %rest:consumes("application/xml", "text/xml")
   function tran:post(
     $body as document-node()
@@ -132,7 +132,7 @@ declare
 
 declare
   %rest:PUT("{$body}")
-  %rest:path("/api/data/transliteration/{$name}")
+  %rest:path("/data/transliteration/{$name}")
   %rest:consumes("application/xml", "text/xml")
   function tran:put(
     $name as xs:string,
@@ -147,7 +147,7 @@ declare
 
 declare 
   %rest:GET
-  %rest:path("/api/data/transliteration/{$name}/access")
+  %rest:path("/data/transliteration/{$name}/access")
   %rest:produces("application/xml")
   function tran:get-access(
     $name as xs:string
@@ -157,7 +157,7 @@ declare
 
 declare 
   %rest:PUT("{$body}")
-  %rest:path("/api/data/transliteration/{$name}/access")
+  %rest:path("/data/transliteration/{$name}/access")
   %rest:consumes("application/xml", "text/xml")
   function tran:put-access(
     $name as xs:string,

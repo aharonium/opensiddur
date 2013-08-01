@@ -19,7 +19,7 @@ declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
  :)
 declare 
   %rest:GET
-  %rest:path("/api")
+  %rest:path("/")
   %rest:produces("application/xhtml+xml", "text/html", "application/xml", "text/xml")
   function index:list(
   ) as item()+ {
